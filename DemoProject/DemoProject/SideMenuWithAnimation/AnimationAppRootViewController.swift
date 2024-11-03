@@ -9,7 +9,6 @@ class AnimationAppRootViewController: UIViewController {
 
   private enum LocalizedString {
     static let helloText = String(localized: "Hello, World!")
-    static let errorText = String(localized: "Error occurred")
   }
 
   private let customDrawerTransitionController = CustomDrawerTransitionController()
