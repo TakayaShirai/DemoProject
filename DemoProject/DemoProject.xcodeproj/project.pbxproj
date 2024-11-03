@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3B5EBF072CD6326B00064C1F /* DrawerPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5EBF062CD6326B00064C1F /* DrawerPresentation */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3B5EBE972CD455EF00064C1F /* DemoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5EBF072CD6326B00064C1F /* DrawerPresentation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = DemoProject;
 			packageProductDependencies = (
+				3B5EBF062CD6326B00064C1F /* DrawerPresentation */,
 			);
 			productName = DemoProject;
 			productReference = 3B5EBE972CD455EF00064C1F /* DemoProject.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 3B5EBE8E2CD455EF00064C1F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3B5EBF052CD6326B00064C1F /* XCRemoteSwiftPackageReference "DrawerPresentation" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3B5EBE982CD455EF00064C1F /* Products */;
 			projectDirPath = "";
@@ -333,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B5EBF052CD6326B00064C1F /* XCRemoteSwiftPackageReference "DrawerPresentation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/noppefoxwolf/DrawerPresentation";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.13;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B5EBF062CD6326B00064C1F /* DrawerPresentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B5EBF052CD6326B00064C1F /* XCRemoteSwiftPackageReference "DrawerPresentation" */;
+			productName = DrawerPresentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B5EBE8F2CD455EF00064C1F /* Project object */;
 }
