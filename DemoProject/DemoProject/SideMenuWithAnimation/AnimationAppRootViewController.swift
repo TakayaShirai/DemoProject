@@ -11,7 +11,7 @@ class AnimationAppRootViewController: UIViewController {
     static let helloText = String(localized: "Hello, World!")
   }
 
-  private let customDrawerTransitionController = CustomDrawerTransitionController()
+  private let sideMenuTransitionController = SideMenuTransitionController()
 
   private lazy var mainRootViewController: AnimationMainRootViewController = {
     let viewController = AnimationMainRootViewController.sharedInstance
@@ -21,18 +21,15 @@ class AnimationAppRootViewController: UIViewController {
     return viewController
   }()
 
+  private lazy var sideMenuViewController: UIViewController = AnimationSideMenuViewController()
+
   // MARK: - View Lifecycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpSubviews()
-    customDrawerTransitionController.setUpDrawer(
-      mainViewController: mainRootViewController,
-      sideMenuViewControllerProvider: { [weak self] in
-        let sideMenuViewController = AnimationSideMenuViewController()
-        sideMenuViewController.sideMenuViewDelegate = self
-        return sideMenuViewController
-      })
+    sideMenuTransitionController.setUpViewControllersForSideMenuTransition(
+      parentVC: self, mainVC: mainRootViewController, sideMenuVC: sideMenuViewController)
   }
 
   // MARK: - Private API
@@ -53,20 +50,18 @@ class AnimationAppRootViewController: UIViewController {
   // MARK: - Public API
 
   public func showSideMenu() {
-    customDrawerTransitionController.showSideMenu()
+    sideMenuTransitionController.presentSideMenu()
   }
 
   @objc
   public func hideSideMenu() {
-    customDrawerTransitionController.hideSideMenu()
+    sideMenuTransitionController.dismissSideMenu()
   }
 }
 
 // MARK: - Delegate
 
 extension AnimationAppRootViewController: AnimationSideMenuViewDelegate {
-  /// The order of hiding the side menu and pushing the selected view controller impacts the animation speed.
-  /// This should be addressed in a future update.
   func navigationButtonDidReceiveTap() {
     hideSideMenu()
     guard
